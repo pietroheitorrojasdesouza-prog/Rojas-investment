@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rojas Investment Group · Notícias do mercado financeiro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffffff;--card:#fafafa;--line:#e4e4e6;--tx:#1c1c1e;--mut:#6e6e73;--y:#48484c;--up:#3f8f66;--dn:#b85454}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.6 "Inter","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--y);outline-offset:2px}
+header{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{max-width:1100px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:12px;font-weight:500;font-size:1.05rem;letter-spacing:.01em;color:var(--tx)}.mark{height:34px;width:auto;color:#1c1c1e}.logo small{display:block;font-weight:300;color:var(--mut);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+nav{display:flex;gap:6px}
+nav a{padding:8px 14px;color:var(--mut);font-size:.95rem}
+nav a:hover{color:var(--y)}
+.live{display:flex;align-items:center;gap:8px;color:var(--mut);font-size:.85rem}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--y);animation:p 1.8s infinite}
+@keyframes p{50%{opacity:.25}}
+.ticker{border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:#f6f6f7}
+.ticker div{display:inline-block;padding:10px 0;animation:s 40s linear infinite}
+.ticker:hover div{animation-play-state:paused}
+.ticker span{margin:0 22px;font-size:.9rem}
+@keyframes s{to{transform:translateX(-50%)}}
+main{max-width:1100px;margin:auto;padding:28px 20px 60px}
+h1{font-weight:300;font-size:clamp(1.9rem,5vw,3rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:10px}
+h1 em{font-style:normal;font-weight:600;color:var(--y)}
+.sub{color:var(--mut);max-width:60ch;margin-bottom:26px}
+h2{font-size:.78rem;font-weight:500;margin:38px 0 14px;color:var(--mut);letter-spacing:.16em;text-transform:uppercase}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{border-top:1px solid var(--line);padding:16px 4px 6px;transition:.2s}
+.card:hover{border-top-color:var(--y)}
+.k{color:var(--mut);font-size:.85rem}.v{font-size:1.5rem;font-weight:500;letter-spacing:-.01em;margin:2px 0}
+.up{color:var(--up)}.dn{color:var(--dn)}
+.gauge{height:10px;border-radius:99px;background:var(--dn);overflow:hidden;margin:12px 0 6px}
+.gauge i{display:block;height:100%;background:var(--up);width:50%;transition:width .8s}
+.hero{display:grid;gap:14px;grid-template-columns:1.2fr 1fr}
+@media(max-width:760px){.hero{grid-template-columns:1fr}}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tabs{gap:22px}.tabs button{background:none;border:0;border-bottom:2px solid transparent;color:var(--mut);padding:6px 0;border-radius:0;cursor:pointer;font:inherit;font-size:.92rem}
+.tabs button[aria-pressed=true]{color:var(--tx);border-bottom-color:var(--y)}
+.news{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.news .card small{color:var(--y)}
+.news h3{font-size:1.02rem;margin:6px 0}
+.news p{color:var(--mut);font-size:.9rem}
+.note{color:var(--mut);font-size:.8rem;margin-top:12px}
+footer{border-top:1px solid var(--line);padding:22px 20px;text-align:center;color:var(--mut);font-size:.82rem}
+.risk{display:flex;gap:4px;align-items:center;margin:10px 0 4px}.risk i{width:22px;height:5px;border-radius:3px;background:var(--line)}.risk i.on{background:var(--y)}
+.tag{display:inline-block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.inv h3{font-size:1.05rem;font-weight:500;margin:4px 0 6px}.inv p{color:var(--mut);font-size:.9rem}.inv .m{margin-top:10px;font-size:.82rem;color:var(--tx)}
+.focus{border-left:2px solid var(--y);padding:4px 0 4px 14px;margin-bottom:18px;color:var(--mut);max-width:70ch}
+.warn{margin-top:22px;padding:6px 0 6px 14px;border-left:2px solid var(--y);color:var(--mut);font-size:.85rem}
+.art{display:grid;grid-template-columns:minmax(240px,340px) 1fr;gap:30px;padding:30px 0;border-top:1px solid var(--line)}
+@media(max-width:760px){.art{grid-template-columns:1fr}}
+.art figure svg{width:100%;height:auto;display:block;background:var(--card)}.art figcaption{font-size:.75rem;color:var(--mut);margin-top:6px}
+.art h3{font-size:1.3rem;font-weight:500;margin:4px 0 0}.art h4{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:500;margin:18px 0 4px}.art p{font-size:.96rem;max-width:68ch}
+.bar{flex-direction:column;justify-content:center;gap:10px;position:relative}
+.logo{gap:14px;font-size:1.3rem}.mark{height:48px}
+.live{position:absolute;right:20px;top:16px}@media(max-width:760px){.live{position:static}}
+nav{flex-wrap:wrap;justify-content:center;gap:2px 22px}nav a{padding:6px 0;border-bottom:2px solid transparent;font-size:.92rem}nav a.on{color:var(--tx);border-bottom-color:var(--y)}
+.view[hidden]{display:none}
+h1,.art h3,.news h3,.logo span{font-family:"Playfair Display",Georgia,"Times New Roman",serif}
+h1{font-weight:600;letter-spacing:-.01em}h1 em{font-weight:700}
+.art h3{font-size:1.5rem;font-weight:600}.news h3{font-weight:600;font-size:1.12rem;line-height:1.3}
+.logo span{font-weight:600;letter-spacing:.01em}.logo small{font-family:"Inter",Arial,sans-serif}
+.about{font-size:1.05rem;max-width:62ch;color:var(--tx)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}th{font-weight:500;color:var(--mut);text-align:left;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}td,th{padding:10px 8px;border-bottom:1px solid var(--line)}td:not(:first-child),th:not(:first-child){text-align:right}.tw{overflow-x:auto}
+.sim{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px}.sim label{display:flex;flex-direction:column;font-size:.78rem;color:var(--mut);gap:4px}.sim input{font:inherit;padding:8px 10px;border:1px solid var(--line);background:#fff;color:var(--tx);width:170px;border-radius:0}
+.news img{width:100%;height:150px;object-fit:cover;display:block;margin-bottom:10px;background:var(--card)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+ <div class="bar">
+  <a class="logo" href="#" aria-label="Rojas Investment Group"><svg class="mark" viewBox="0 0 203 315" aria-hidden="true"><path fill="currentColor" d="M188,282 L170,304 L170,307 L177,315 L180,314Z M169,262 L135,278 L133,278 L118,286 L116,286 L113,289 L119,313 L121,315 L124,315 L130,309Z M47,279 L51,283 L58,282 L73,274 L75,274 L90,266 L92,266 L160,234 L57,234 L54,237Z M0,193 L2,200 L5,202 L164,202 L39,144 L34,145 L30,149Z M18,85 L17,91 L21,96 L36,102 L174,167 L171,162 L80,54 L76,52 L71,53 L38,73 L31,76Z M102,5 L97,11 L98,18 L203,143 L166,4 L163,1 L160,0 L151,0 L150,1 L140,1 L139,2Z"/></svg><span>Rojas Investment Group<small>Mercado financeiro</small></span></a>
+  <nav aria-label="Principal" id="nav"></nav>
+  <div class="live"><span class="dot"></span><span id="status">Conectando…</span></div>
+ </div>
+ <div class="ticker" aria-hidden="true"><div id="tick"></div></div>
+</header>
+
+<main>
+ <section class="view" id="v-inicio"><h1>O mercado financeiro, <em>agora</em>.</h1>
+ <p class="sub">Cotações, bolsa de valores e as principais notícias do dia, reunidas em um só lugar e atualizadas automaticamente.</p>
+
+ <h2 id="bolsa">Bolsa de valores</h2>
+ <div class="hero">
+  <div class="card">
+   <div class="k">Ibovespa</div>
+   <div class="v" id="ibov">—</div>
+   <div id="ibovv" class="k">aguardando dados</div>
+   <div class="gauge" aria-hidden="true"><i id="g"></i></div>
+   <div class="k" id="gl">Termômetro: —</div>
+   <p class="note">O termômetro mostra a proporção de ativos acompanhados em alta e em queda neste momento. Não é previsão nem recomendação de investimento.</p>
+  </div>
+  <div class="grid" id="fx" style="grid-template-columns:1fr 1fr"></div>
+ </div>
+ <h2>Ações em destaque</h2>
+ <div class="grid" id="acoes"></div>
+
+ <h2 id="noticias">Notícias</h2>
+ <div class="tabs" id="tabs"></div>
+ <div class="news" id="news"></div>
+
+ </section><div id="extra"></div><section class="view" id="v-investir" hidden><h1>Onde investir</h1>
+ <p class="sub">Indicadores atualizados, simulação de rentabilidade líquida e referências tributárias para apoiar a decisão do cliente, seguidos da explicação de cada classe de investimento.</p>
+ <h2>Indicadores</h2>
+ <div class="grid" id="ind"></div>
+ <h2>Simulador de rentabilidade líquida</h2>
+ <div class="sim"><label>Valor investido (R$)<input id="sv" type="number" min="0" value="10000" oninput="sim()"></label><label>Prazo (meses)<input id="sp" type="number" min="1" value="12" oninput="sim()"></label></div>
+ <div class="tw"><table id="st"></table></div>
+ <p class="note">Estimativa que mantém as taxas atuais de CDI e Selic durante todo o prazo, que na prática variam. IR pela tabela regressiva. LCI/LCA isentas conforme a regra atual. Poupança: 70% da Selic quando a Selic é igual ou menor que 8,5% ao ano; acima disso, 0,5% ao mês (a TR não está incluída). Não inclui IOF (resgates em até 29 dias) nem taxa de custódia da B3. Confirme as taxas reais com a instituição emissora.</p>
+ <h2>Referências tributárias e de proteção</h2>
+ <div class="tw"><table><tr><th>Item</th><th>Regra</th></tr>
+ <tr><td>IR na renda fixa até 180 dias</td><td>22,5%</td></tr><tr><td>De 181 a 360 dias</td><td>20%</td></tr><tr><td>De 361 a 720 dias</td><td>17,5%</td></tr><tr><td>Acima de 720 dias</td><td>15%</td></tr>
+ <tr><td>FGC (CDB, LCI, LCA)</td><td>Até R$ 250 mil por CPF e instituição; R$ 1 milhão a cada 4 anos</td></tr>
+ <tr><td>Ganho na venda de FIIs</td><td>20%</td></tr><tr><td>Ganho na venda de ETFs</td><td>15%</td></tr>
+ <tr><td>Ações (operações comuns)</td><td>Isenção em vendas de até R$ 20 mil por mês; acima disso, 15% sobre o lucro</td></tr></table></div>
+ <p class="note">Regras tributárias mudam. Confirme a legislação vigente antes de orientar o cliente.</p>
+ <h2>Desempenho em 12 meses</h2>
+ <div class="tw"><table id="pf"></table></div>
+ <p class="note">Variação de preço, sem considerar dividendos e rendimentos. Rentabilidade passada não garante resultados futuros. Fonte: brapi.</p>
+ <h2>Entenda cada classe</h2>
+ <div class="tabs" id="perfis"></div>
+ <div class="focus" id="foco"></div>
+ <div id="inv"></div>
+ <div class="warn">Conteúdo informativo e educacional. Não constitui recomendação de investimento, nem considera a sua situação pessoal. Rentabilidade passada não garante resultados futuros. Antes de investir, avalie seus objetivos e prazos e, se possível, consulte um assessor ou consultor de investimentos devidamente autorizado.</div>
+
+ </section>
+ <h2 id="sobre">Sobre</h2>
+ <p class="about">Somos uma empresa de investimentos preocupada com o cliente e com o crescimento da carteira financeira de cada indivíduo.</p>
+ <p class="note">Conteúdo informativo e educacional. Nada aqui constitui recomendação de compra ou venda de ativos.</p>
+</main>
+<footer>© Rojas Investment Group · Dados: brapi.dev e AwesomeAPI · Notícias: feeds públicos de RSS</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const fmt=(n,d=2)=>Number(n).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const cls=n=>n>=0?'up':'dn', sg=n=>(n>=0?'▲ +':'▼ ')+fmt(n)+'%';
+const ACOES=['PETR4','VALE3','ITUB4','BBDC4','BBAS3','WEGE3','MGLU3','ABEV3'];
+const FEEDS={
+ 'Mercados':'https://www.infomoney.com.br/mercados/feed/',
+ 'Economia':'https://www.infomoney.com.br/economia/feed/',
+ 'Negócios':'https://www.infomoney.com.br/negocios/feed/'
+};
+/* Dados de demonstração: aparecem apenas se as fontes ao vivo não responderem */
+const DEMO={
+ acoes:ACOES.map((s,i)=>({symbol:s,regularMarketPrice:[38.2,62.1,33.4,13.9,26.7,45.3,9.8,14.2][i],regularMarketChangePercent:[1.2,-0.9,0.4,-0.3,0.8,1.5,-2.1,0.2][i]})),
+ news:[{title:'Notícias indisponíveis no momento',description:'Não foi possível carregar o feed agora. Tente novamente em instantes.',pubDate:'',link:'#'}]
+};
+let demo=false;
+
+async function j(u){const r=await fetch(u);if(!r.ok)throw 0;return r.json()}
+
+async function cambio(){
+ try{
+  const d=await j('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL');
+  const L={USDBRL:'Dólar',EURBRL:'Euro',GBPBRL:'Libra',BTCBRL:'Bitcoin'};
+  $('fx').innerHTML=Object.keys(L).map(k=>{const x=d[k],p=+x.pctChange;
+   return `<div class="card"><div class="k">${L[k]}</div><div class="v">R$ ${fmt(x.bid,k=='BTCBRL'?0:2)}</div><div class="${cls(p)}">${sg(p)}</div></div>`}).join('');
+  return Object.keys(L).map(k=>({n:L[k],p:+d[k].bid,c:+d[k].pctChange}));
+ }catch(e){$('fx').innerHTML='<div class="card"><div class="k">Câmbio</div><div class="k">indisponível</div></div>';return[]}
+}
+
+async function bolsa(){
+ let list=[];
+ try{
+  const d=await j('https://brapi.dev/api/quote/'+ACOES.join(','));
+  list=d.results;
+ }catch(e){list=ACOES.map(s=>({symbol:s,regularMarketPrice:null,regularMarketChangePercent:null}));demo=true}
+ $('acoes').innerHTML=list.map(a=>{const ok=a.regularMarketPrice!=null;return `<div class="card"><div class="k">${a.symbol}</div><div class="v">${ok?'R$ '+fmt(a.regularMarketPrice):'—'}</div><div class="${ok?cls(a.regularMarketChangePercent):'k'}">${ok?sg(a.regularMarketChangePercent):'aguardando dados'}</div></div>`}).join('');
+ try{
+  const d=await j('https://brapi.dev/api/quote/%5EBVSP');const r=d.results[0];
+  $('ibov').textContent=fmt(r.regularMarketPrice,0)+' pts';
+  $('ibovv').innerHTML=`<span class="${cls(r.regularMarketChangePercent)}">${sg(r.regularMarketChangePercent)} no dia</span>`;
+ }catch(e){$('ibov').textContent='indisponível';$('ibovv').textContent=''}
+ if(demo){$('gl').textContent='Termômetro: aguardando dados';return[]}
+ const alta=list.filter(a=>a.regularMarketChangePercent>=0).length,pct=Math.round(alta/list.length*100);
+ $('g').style.width=pct+'%';
+ $('gl').textContent=`Termômetro: ${pct}% em alta · ${100-pct}% em queda`;
+ return list.map(a=>({n:a.symbol,p:a.regularMarketPrice,c:a.regularMarketChangePercent}));
+}
+
+function ticker(items){
+ const h=items.map(i=>`<span>${i.n} <b>${fmt(i.p)}</b> <span class="${cls(i.c)}" style="margin:0">${sg(i.c)}</span></span>`).join('');
+ $('tick').innerHTML=h+h;
+}
+
+let cat=Object.keys(FEEDS)[0];
+function tabs(){
+ $('tabs').innerHTML=Object.keys(FEEDS).map(k=>`<button aria-pressed="${k==cat}" data-k="${k}">${k}</button>`).join('');
+ $('tabs').querySelectorAll('button').forEach(b=>b.onclick=()=>{cat=b.dataset.k;tabs();noticias()});
+}
+const esc=s=>String(s||'').replace(/<[^>]*>/g,'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+async function noticias(){
+ let it;
+ try{
+  const d=await j('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(FEEDS[cat]));
+  it=d.items.slice(0,12);
+ }catch(e){it=DEMO.news}
+ $('news').innerHTML=it.map(n=>{
+  const t=n.pubDate?new Date(n.pubDate.replace(' ','T')+'Z').toLocaleString('pt-BR',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}):'';
+  return `<a class="card" href="${esc(n.link)}" target="_blank" rel="noopener"><small>${cat}${t?' · '+t:''}</small><h3>${esc(n.title)}</h3><p>${esc(n.description).slice(0,140)}…</p></a>`}).join('');
+}
+
+async function tudo(){
+ const [a,b]=await Promise.all([bolsa(),cambio()]);
+ ticker([...b,...a]);
+ $('status').textContent=(demo?'Aguardando dados · ':'Ao vivo · ')+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+ noticias();
+}
+const PERFIS={
+ 'Conservador':'Prioriza segurança e liquidez. Costuma começar pela reserva de emergência e pela renda fixa, aceitando retornos mais previsíveis.',
+ 'Moderado':'Busca equilíbrio. Combina uma base sólida em renda fixa com uma parcela em ativos que oscilam mais, visando crescer no longo prazo.',
+ 'Arrojado':'Aceita oscilações fortes em troca de potencial maior de retorno. Mantém prazo longo e diversificação, sem abrir mão da reserva.'
+};
+const G='#48484c',L='#d9d9dd',F='#f4f4f5',M='#6e6e73';
+const S=b=>`<svg viewBox="0 0 320 180" role="img" aria-label="Ilustração conceitual" font-family="Inter,Arial,sans-serif" font-size="11">${b}</svg>`;
+const T=(x,y,s,c=M,a='middle')=>`<text x="${x}" y="${y}" text-anchor="${a}" fill="${c}">${s}</text>`;
+const AX=`<path d="M24 150H304M24 24V150" stroke="${L}" fill="none"/>`;
+const flow=(a,foot)=>{const n=a.length,w=n>3?68:86,g=(300-n*w)/(n-1);return S(a.map((s,i)=>{const x=10+i*(w+g),l=s.split('|');return `<rect x="${x}" y="46" width="${w}" height="58" fill="${F}" stroke="${G}"/>`+l.map((q,k)=>T(x+w/2,(l.length>1?65:76)+k*14,q,G)).join('')+(i<n-1?`<path d="M${x+w+4} 75H${x+w+g-4}" stroke="${G}"/><path d="M${x+w+g-4} 75l-5-3v6z" fill="${G}"/>`:'')}).join('')+T(160,138,foot)+`<path d="M60 150H260" stroke="${L}"/>`)};
+const FIG={
+ selic:()=>S(AX+`<path d="M24 130L80 118L136 104L192 86L248 64L304 38" stroke="${G}" stroke-width="2" fill="none"/><path d="M24 130H304" stroke="${M}" stroke-dasharray="4 4"/>`+[[24,130],[80,118],[136,104],[192,86],[248,64],[304,38]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="${G}"/>`).join('')+T(30,144,'Capital investido',M,'start')+T(150,60,'O valor cresce todo dia com a Selic',G)+T(304,166,'Tempo',M,'end')),
+ cdb:()=>flow(['Você|(investidor)','Banco|emissor','Crédito|a clientes'],'FGC protege até o limite vigente'),
+ ipca:()=>S(`<rect x="30" y="56" width="150" height="40" fill="${L}"/><rect x="180" y="56" width="90" height="40" fill="${G}"/>`+T(105,80,'Inflação (IPCA)',G)+T(225,80,'Taxa fixa','#fff')+`<path d="M30 108v8h240v-8" stroke="${G}" fill="none"/>`+T(150,134,'Retorno = inflação + taxa fixa',G)+T(150,154,'Poder de compra preservado')),
+ fii:()=>flow(['Cotistas|(investidores)','Fundo|imobiliário','Imóveis|e títulos','Rendimento|mensal'],'Aluguéis e juros chegam ao cotista'),
+ etf:()=>S(`<rect x="90" y="24" width="140" height="100" fill="${F}" stroke="${G}"/>`+Array.from({length:16},(_,i)=>`<circle cx="${112+(i%4)*32}" cy="${46+Math.floor(i/4)*24}" r="7" fill="${i%3?L:G}"/>`).join('')+T(160,146,'1 cota = cesta de vários ativos',G)+T(160,166,'O ETF replica um índice')),
+ acoes:()=>S(AX+[[120,90,84,126],[90,100,80,106],[100,70,64,104],[70,78,60,86],[78,52,46,82],[52,60,42,66],[60,36,30,64],[36,44,26,50]].map(([o,c,h,l],i)=>{const x=44+i*34;return `<path d="M${x+8} ${h}V${l}" stroke="${G}"/><rect x="${x}" y="${Math.min(o,c)}" width="16" height="${Math.abs(o-c)}" fill="${c<o?G:'#fff'}" stroke="${G}"/>`}).join('')+T(164,168,'O preço oscila a cada pregão')),
+ intl:()=>S(`<circle cx="160" cy="84" r="58" fill="${F}" stroke="${G}"/><ellipse cx="160" cy="84" rx="24" ry="58" fill="none" stroke="${L}"/><ellipse cx="160" cy="84" rx="48" ry="58" fill="none" stroke="${L}"/><path d="M102 84H218M110 54H210M110 114H210" stroke="${L}"/><path d="M132 60L188 76L160 112Z" fill="none" stroke="${G}" stroke-dasharray="3 3"/>`+[[132,60],[188,76],[160,112]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="${G}"/>`).join('')+T(160,164,'Diversificação entre países e moedas',G)),
+ cripto:()=>S(AX+`<path d="M24 120L52 96L76 130L104 60L128 98L156 40L180 110L208 70L232 128L262 56L304 90" stroke="${G}" stroke-width="2" fill="none"/>`+T(164,168,'Oscilações fortes em curto prazo'))
+};
+const ALL=['Conservador','Moderado','Arrojado'];
+const CL=[
+ {n:'Tesouro Selic',t:'Renda fixa',r:1,l:'resgate em 1 dia útil',f:'selic',p:ALL,
+  o:'É um título público federal emitido pelo Tesouro Nacional: o investidor empresta dinheiro ao governo. A rentabilidade é pós-fixada, acompanha a taxa Selic definida pelo Banco Central, e o valor cresce dia a dia.',
+  v:'Risco de crédito considerado o menor do país, porque o devedor é o Tesouro. Pode ser resgatado em 1 dia útil e o preço oscila muito pouco, o que o torna a referência para a reserva de emergência.',
+  c:'Se a Selic cair, o rendimento cai junto. Resgates antes do vencimento seguem o preço de mercado do dia, com oscilação pequena, mas existente.',
+  q:'Quem está formando a reserva de emergência ou precisa de segurança e acesso rápido ao dinheiro.',
+  x:'Incide imposto de renda regressivo sobre os rendimentos, de 22,5% (até 180 dias) a 15% (acima de 720 dias), além de IOF nos primeiros 30 dias e de eventuais taxas da B3 e da corretora.'},
+ {n:'CDB, LCI e LCA',t:'Renda fixa',r:1,l:'varia conforme o prazo',f:'cdb',p:ALL,
+  o:'São títulos emitidos por bancos para captar dinheiro: o investidor empresta ao banco e recebe juros. Podem ser pós-fixados (em geral um percentual do CDI), prefixados ou atrelados à inflação. LCI e LCA financiam, respectivamente, o crédito imobiliário e o agronegócio.',
+  v:'Há opções com liquidez diária e outras com taxas maiores para prazos mais longos. Os títulos são protegidos pelo FGC até R$ 250 mil por CPF e por instituição, com limite global de R$ 1 milhão a cada 4 anos. Pela regra atual, LCI e LCA são isentas de IR para pessoa física; confirme a regra vigente antes de investir.',
+  c:'O risco de crédito é do banco emissor, e a proteção do FGC tem teto. Muitos títulos só podem ser resgatados no vencimento, e vender antes pode resultar em perda.',
+  q:'Quem tem objetivos com prazo definido e aceita deixar o dinheiro aplicado em troca de taxas melhores que as de produtos com liquidez imediata.',
+  x:'O CDB segue a tabela regressiva de IR. Compare sempre a taxa líquida, depois de impostos, e o prazo de carência.'},
+ {n:'Tesouro IPCA+',t:'Renda fixa',r:2,l:'diária, com oscilação de preço',f:'ipca',p:['Conservador','Moderado'],
+  o:'Título público que paga a variação da inflação (IPCA) mais uma taxa fixa definida na compra. Existe a versão que paga tudo no vencimento e a que paga juros semestrais.',
+  v:'Protege o poder de compra: o ganho acima da inflação fica travado se o título for mantido até o vencimento. É muito usado para metas de longo prazo, como aposentadoria e educação dos filhos.',
+  c:'Antes do vencimento, o preço varia conforme as taxas de juros do mercado, e vender antes pode gerar prejuízo. Quanto mais longo o vencimento, maior a oscilação.',
+  q:'Quem investe para um objetivo distante e consegue manter o título até o vencimento.',
+  x:'IR regressivo sobre os rendimentos, além da taxa de custódia da B3 e de eventuais taxas da corretora.'},
+ {n:'Fundos imobiliários (FIIs)',t:'Renda variável',r:3,l:'diária, na bolsa',f:'fii',p:['Moderado','Arrojado'],
+  o:'Fundos de investimento imobiliário reúnem o dinheiro de vários investidores para comprar imóveis, como shoppings e galpões, ou títulos do setor, como CRIs. As cotas são negociadas na bolsa. Os fundos de tijolo investem em imóveis, os de papel em títulos e os de fundos em cotas de outros FIIs.',
+  v:'Permitem investir no setor imobiliário com pouco dinheiro e sem lidar com inquilinos ou obras. Por lei, os fundos distribuem ao menos 95% do resultado de caixa semestral, em geral com pagamentos mensais. Para pessoa física, esses rendimentos costumam ser isentos de IR, desde que cumpridas as condições legais.',
+  c:'O preço das cotas oscila na bolsa. Há risco de vacância, inadimplência e queda dos aluguéis, e juros altos tendem a pressionar o preço das cotas. Os rendimentos mensais não são garantidos.',
+  q:'Quem busca renda recorrente e aceita oscilação de preço, com visão de longo prazo.',
+  x:'O ganho na venda das cotas é tributado em 20%. Analise a qualidade dos imóveis, a gestão e a diversificação do fundo.'},
+ {n:'ETFs de índice',t:'Renda variável',r:3,l:'diária, na bolsa',f:'etf',p:['Moderado','Arrojado'],
+  o:'Fundos negociados em bolsa que replicam um índice, como o Ibovespa ou o S&P 500. Ao comprar uma cota, o investidor passa a deter, indiretamente, uma cesta de vários ativos.',
+  v:'Diversificação imediata com uma única compra, taxas de administração geralmente baixas e negociação simples, como a de uma ação.',
+  c:'O ETF acompanha o índice para cima e para baixo, sem proteção contra quedas do mercado. Há ainda pequenas diferenças entre o desempenho do ETF e o do índice.',
+  q:'Quem quer exposição ao mercado de ações sem escolher empresas individuais.',
+  x:'Os ganhos são tributados em 15%, sem a isenção para vendas de até R$ 20 mil por mês que existe para ações. Compare taxas de administração e liquidez de cada ETF.'},
+ {n:'Ações',t:'Renda variável',r:4,l:'diária, na bolsa',f:'acoes',p:['Moderado','Arrojado'],
+  o:'Ao comprar uma ação, o investidor se torna sócio de uma empresa listada na B3. O retorno vem da valorização do papel e de proventos, como dividendos.',
+  v:'Historicamente é a classe com maior potencial de retorno no longo prazo, permite participar do crescimento das empresas e tem boa liquidez.',
+  c:'O preço oscila diariamente e há risco de perdas, inclusive permanentes, se a empresa piorar. Concentrar o dinheiro em poucas empresas aumenta o risco.',
+  q:'Quem tem prazo longo, estuda as empresas e tolera ver o patrimônio oscilar.',
+  x:'As regras de IR têm particularidades, como alíquotas diferentes para operações comuns e day trade, e isenção para vendas dentro de um limite mensal. Confira a regra vigente.'},
+ {n:'Investimento internacional',t:'Diversificação',r:4,l:'diária, via ETFs ou BDRs',f:'intl',p:['Moderado','Arrojado'],
+  o:'Consiste em investir em ativos de outros países, por meio de ETFs negociados na B3 que replicam índices estrangeiros, de BDRs (recibos de ações estrangeiras) ou de contas em corretoras no exterior.',
+  v:'Diversifica o risco do Brasil e dá acesso a empresas e setores que não existem na bolsa local. Também funciona como proteção parcial contra a desvalorização do real.',
+  c:'Há risco cambial: se o real se valorizar, o ganho em dólar diminui. Os mercados estrangeiros também oscilam, e a tributação e as regras de declaração são específicas.',
+  q:'Quem já tem uma base em ativos locais e quer ampliar a diversificação com visão de longo prazo.',
+  x:'Ganhos no exterior têm tributação própria e exigem declaração. Considere custos de câmbio e de custódia.'},
+ {n:'Criptomoedas',t:'Alto risco',r:5,l:'alta, mercado 24 horas',f:'cripto',p:['Arrojado'],
+  o:'Ativos digitais criados e negociados em redes descentralizadas, como Bitcoin e Ethereum, com mercado aberto 24 horas por dia.',
+  v:'Mercado acessível e de funcionamento contínuo, com potencial de valorização elevado e interesse crescente de investidores e instituições.',
+  c:'Volatilidade muito alta, com quedas bruscas em curto prazo. Há riscos de custódia, golpes e mudanças regulatórias, e o valor depende muito da percepção do mercado.',
+  q:'Quem aceita perder parte relevante do valor investido e destina apenas uma fatia pequena do patrimônio, depois de formar sua reserva.',
+  x:'Vendas e operações têm regras próprias de tributação e de declaração à Receita Federal. Use apenas plataformas confiáveis e proteja o acesso à sua conta.'}
+];
+let perfil='Conservador';
+function inv(){
+ $('perfis').innerHTML=Object.keys(PERFIS).map(k=>`<button aria-pressed="${k==perfil}" data-k="${k}">${k}</button>`).join('');
+ $('perfis').querySelectorAll('button').forEach(b=>b.onclick=()=>{perfil=b.dataset.k;inv()});
+ $('foco').textContent=PERFIS[perfil];
+ $('inv').innerHTML=CL.filter(c=>c.p.includes(perfil)).map(c=>`<article class="art"><figure>${FIG[c.f]()}<figcaption>Ilustração conceitual, sem dados reais.</figcaption></figure><div><span class="tag">${c.t}</span><h3>${c.n}</h3><div class="risk" role="img" aria-label="Risco ${c.r} de 5">${[1,2,3,4,5].map(i=>`<i class="${i<=c.r?'on':''}"></i>`).join('')}</div><div class="k">Risco ${c.r} de 5 · Liquidez: ${c.l}</div><h4>O que é e como funciona</h4><p>${c.o}</p><h4>Vantagens</h4><p>${c.v}</p><h4>Riscos e cuidados</h4><p>${c.c}</p><h4>Para quem costuma fazer sentido</h4><p>${c.q}</p><h4>Impostos e custos</h4><p>${c.x}</p></div></article>`).join('');
+}
+
+const GN=q=>'https://news.google.com/rss/search?q='+encodeURIComponent(q)+'&hl=pt-BR&gl=BR&ceid=BR:pt-419';
+const IM=s=>'https://www.infomoney.com.br/'+s+'/feed/';
+const V=[
+ {k:'economia',t:'Economia',i:'Notícias e artigos sobre juros, inflação, atividade econômica e contas públicas.',b:[['Notícias',IM('economia')],['Artigos',GN('economia brasileira análise artigo')]]},
+ {k:'politica',t:'Política',i:'Notícias e artigos em tempo real sobre as decisões que afetam a economia e os mercados.',b:[['Notícias',IM('politica')],['Artigos',GN('política econômica análise artigo')]]},
+ {k:'mundo',t:'Mundo',i:'Notícias do exterior: economia global, bancos centrais e mercados internacionais.',b:[['Notícias do exterior',IM('mundo')],['Mercados internacionais',GN('mercados globais bolsas Wall Street')],['Artigos',GN('economia global análise artigo')]]},
+ {k:'financas',t:'Minhas Finanças',i:'Notícias sobre imposto de renda, seguros e carro por assinatura, além de artigos sobre metas financeiras, previdência privada e guias.',b:[['Notícias · Imposto de renda',GN('imposto de renda')],['Notícias · Seguros',GN('seguros')],['Notícias · Carro por assinatura',GN('carro por assinatura')],['Artigos · Metas financeiras',GN('metas financeiras planejamento financeiro')],['Artigos · Previdência privada',GN('previdência privada PGBL VGBL')],['Artigos · Guias',GN('guia finanças pessoais como investir')]]},
+ {k:'business',t:'Business',i:'Informações e notícias sobre agroempreendedorismo global, inovação e ESG e os negócios do esporte.',b:[['Agroempreendedorismo global',GN('agroempreendedorismo agronegócio global inovação')],['Inovação e ESG',GN('inovação ESG sustentabilidade empresas')],['Negócios do esporte',GN('negócios do esporte mercado esportivo')]]}
+];
+$('extra').innerHTML=V.map(v=>`<section class="view" id="v-${v.k}" hidden data-feed="1"><h1>${v.t}</h1><p class="sub">${v.i}</p>${v.b.map(([h],i)=>`<h2>${h}</h2><div class="news" id="n-${v.k}-${i}"></div>`).join('')}</section>`).join('');
+const NAV=[['inicio','Início'],['mercados','Mercados'],['economia','Economia'],['politica','Política'],['mundo','Mundo'],['financas','Minhas Finanças'],['business','Business'],['investir','Onde investir']];
+$('nav').innerHTML=NAV.map(([k,n])=>`<a href="#${k}" data-v="${k}">${n}</a>`).join('');
+const loaded={};
+async function feed(id,u,label){
+ let it;
+ try{const d=await j('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(u));it=d.items.slice(0,6)}catch(e){it=DEMO.news}
+ $(id).innerHTML=it.map(n=>{const t=n.pubDate?new Date(n.pubDate.replace(' ','T')+'Z').toLocaleString('pt-BR',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}):'';
+  const im=n.thumbnail||(n.enclosure&&/image/.test(n.enclosure.type||'')?n.enclosure.link:''),ti=esc(n.title),ds=esc(n.description).slice(0,140);
+  return `<a class="card" href="${esc(n.link)}" target="_blank" rel="noopener">${im?`<img loading="lazy" src="${esc(im)}" alt="" onerror="this.remove()">`:''}<small>${label}${t?' · '+t:''}</small><h3>${ti}</h3>${ds.length>25&&!ti.startsWith(ds.slice(0,25))?`<p>${ds}…</p>`:''}</a>`}).join('');
+}
+const IRT=m=>{const d=m*30;return d<=180?.225:d<=360?.2:d<=720?.175:.15};
+const pc=(c,p)=>Math.pow(1+(Math.pow(1+c,1/252)-1)*p,252)-1;
+function sim(){
+ const D=window.D;
+ if(!D||!D.selic){$('st').innerHTML='<tr><td>Aguardando dados do Banco Central…</td></tr>';return}
+ const v=+$('sv').value||0,m=Math.max(1,+$('sp').value||1),c=D.cdi/100,s=D.selic/100;
+ const pop=D.selic>8.5?Math.pow(1.005,12)-1:.7*s;
+ const R=[['Poupança',pop,0],['Tesouro Selic',s,1],['CDB 100% do CDI',pc(c,1),1],['CDB 110% do CDI',pc(c,1.1),1],['LCI/LCA 90% do CDI',pc(c,.9),0]];
+ const $$=n=>'R$ '+fmt(n);
+ $('st').innerHTML='<tr><th>Aplicação</th><th>Rendimento bruto</th><th>IR</th><th>Valor líquido final</th><th>Líquido a.a.</th><th>Acima do IPCA a.a.</th></tr>'+R.map(([n,y,tx])=>{
+  const g=v*(Math.pow(1+y,m/12)-1),ir=tx?g*IRT(m):0,net=g-ir,a=v?Math.pow(1+net/v,12/m)-1:0,re=D.ipca!=null?((1+a)/(1+D.ipca/100)-1)*100:null;
+  return `<tr><td>${n}</td><td>${$$(g)}</td><td>${$$(ir)}</td><td>${$$(v+net)}</td><td>${fmt(a*100)}%</td><td class="${re==null?'':cls(re)}">${re==null?'—':fmt(re)+'%'}</td></tr>`}).join('');
+}
+async function dados(){
+ const g=async n=>+(await j('https://api.bcb.gov.br/dados/serie/bcdata.sgs.'+n+'/dados/ultimos/1?formato=json'))[0].valor;
+ const [a,b,c,u,i]=await Promise.allSettled([g(432),g(4389),g(13522),j('https://economia.awesomeapi.com.br/json/last/USD-BRL'),j('https://brapi.dev/api/quote/%5EBVSP')]);
+ const D=window.D={selic:a.value,cdi:b.value!=null?b.value:(a.value!=null?a.value-.1:null),ipca:c.value};
+ const ok=x=>x!=null&&!isNaN(x),P=x=>ok(x)?fmt(x)+'% a.a.':'—';
+ const dl=u.value?+u.value.USDBRL.bid:null,ib=i.value?i.value.results[0].regularMarketPrice:null;
+ $('ind').innerHTML=[['Selic (meta)',P(D.selic),'Banco Central'],['CDI',P(D.cdi),'Banco Central'],['IPCA em 12 meses',ok(D.ipca)?fmt(D.ipca)+'%':'—','IBGE via Banco Central'],['Dólar',dl?'R$ '+fmt(dl):'—','AwesomeAPI'],['Ibovespa',ib?fmt(ib,0)+' pts':'—','brapi']].map(([k,v,f])=>`<div class="card"><div class="k">${k}</div><div class="v">${v}</div><div class="k">Fonte: ${f}</div></div>`).join('');
+ sim();
+ const T=[['BOVA11','BOVA11 · ETF Ibovespa'],['IVVB11','IVVB11 · ETF S&P 500'],['HGLG11','HGLG11 · FII de logística'],['KNRI11','KNRI11 · FII híbrido'],['PETR4','PETR4 · Petrobras'],['VALE3','VALE3 · Vale'],['ITUB4','ITUB4 · Itaú']];
+ const rs=await Promise.allSettled(T.map(t=>j('https://brapi.dev/api/quote/'+t[0]+'?range=1y&interval=1mo')));
+ $('pf').innerHTML='<tr><th>Ativo</th><th>Preço atual</th><th>Variação em 12 meses</th></tr>'+T.map((t,k)=>{
+  let p='—',v='—',c='';try{const r=rs[k].value.results[0],h=r.historicalDataPrice,x=(r.regularMarketPrice/h[0].close-1)*100;p='R$ '+fmt(r.regularMarketPrice);v=(x>=0?'+':'')+fmt(x)+'%';c=cls(x)}catch(e){}
+  return `<tr><td>${t[1]}</td><td>${p}</td><td class="${c}">${v}</td></tr>`}).join('')+(ok(D.ipca)?`<tr><td>Referência · IPCA em 12 meses</td><td>—</td><td>${fmt(D.ipca)}%</td></tr>`:'');
+}
+function route(v){
+ v=v||location.hash.slice(1);if(!NAV.some(n=>n[0]==v))v='inicio';
+ document.querySelectorAll('.view').forEach(e=>e.hidden=e.id!=='v-'+v);
+ document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.v==v));
+ const e=$('v-'+v);if(e&&e.dataset.feed&&!loaded[v]){loaded[v]=1;V.find(x=>x.k==v).b.forEach(([h,u],i)=>feed('n-'+v+'-'+i,u,h))}
+ window.scrollTo(0,0);
+}
+addEventListener('hashchange',()=>route());
+$('nav').addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();route(a.dataset.v);try{history.replaceState(null,'','#'+a.dataset.v)}catch(_){}});
+document.querySelector('.logo').addEventListener('click',e=>{e.preventDefault();route('inicio');try{history.replaceState(null,'','#inicio')}catch(_){}});
+tabs();inv();dados();tudo();route();setInterval(tudo,60000);
+</script>
+</body>
+</html>
